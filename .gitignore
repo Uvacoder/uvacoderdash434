@@ -21,3 +21,65 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.npm
+package-lock.json
+
+# testing
+/coverage
+/state.json
+/test-results
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# IDEs and editors
+.c9/
+.classpath
+.project
+.settings/
+*.launch
+*.sublime-workspace
+/.idea
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+.eslintcache
+/typings
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+testem.log
+
+# local env files
+.env*.local
+.env
+.env.local
+.localdevserver
+.sfdx
+
+# vercel
+.vercel
