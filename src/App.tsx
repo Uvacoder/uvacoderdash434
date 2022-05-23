@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as HashRouter, Routes, Route } from 'react-router-dom'
 
 import { Home } from './routes/home'
 import { BinaryClock } from './routes/binary-clock'
