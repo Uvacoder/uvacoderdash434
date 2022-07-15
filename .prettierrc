@@ -1,7 +1,9 @@
 {
-  "singleQuote": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
   "jsxSingleQuote": true,
   "semi": false,
+  "singleQuote": true,
   "trailingComma": "es5",
   "useTabs": false
 }

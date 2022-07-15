@@ -1,6 +1,6 @@
 {
   "name": "react-me.com",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -23,13 +23,29 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "semantic-release": "semantic-release",
+    "prepare": "husky install",
+    "format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ]
+  },
+  "lint-prepush": {
+    "base": "develop",
+    "tasks": {
+      "*.{js,jsx,ts,tsx}": [
+        "eslint"
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -44,9 +60,24 @@
     ]
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "autoprefixer": "^10.4.7",
     "eslint": "^8.16.0",
+    "husky": "^8.0.0",
+    "lint-prepush": "^2.2.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
+    "precise-commits": "^1.0.2",
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.3",
     "tailwindcss": "^3.0.24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polpenaloza/react-me.com.git"
   }
 }
