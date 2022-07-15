@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, edited, synchronize, reopened]
 jobs:
   release:
     name: Release
@@ -16,27 +14,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - uses: c-hive/gha-yarn-cache@v2
-      - uses: deepakputhraya/action-pr-title@3864bebc79c5f829d25dd42d3c6579d040b0ef16
-        name: Validate PR Title
-        continue-on-error: false
-        with:
-          regex: '\w+\(([\w]+)\)+:( \w+ \w+\-\d+)?'
-          allowed_prefixes: "feature,feat,fix,hotfix"
-          prefix_case_sensitive: true
-          max_length: 60
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: mshick/add-pr-comment@07f690343c25a94e24a8acb70d03c86b701ae322
-        name: Comment on PR
-        if: ${{ failure() }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          message: |
-            Please fix the title of this PR.
-
-            Example: `feat(core): `
-
-            See more in `/docs/RELEASE.md`.
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
