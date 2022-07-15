@@ -6,11 +6,16 @@ module.exports = {
     [
       '@semantic-release/changelog',
       {
-        changelogFile: './docs/CHANGELOG.md',
+        changelogFile: 'docs/CHANGELOG.md',
       },
     ],
-    ['@semantic-release/github', { assets: [{ path: './docs/CHANGELOG.md' }] }],
-    '@semantic-release/git',
+    ['@semantic-release/github', { assets: ['docs/CHANGELOG.md'] }],
+    [
+      '@semantic-release/git',
+      {
+        assets: ['docs/CHANGELOG.md'],
+      },
+    ],
   ],
   branches: [
     { name: '1.x', range: '1.x', channel: '1.x' }, // Only after the `1.x` is created in the repo
