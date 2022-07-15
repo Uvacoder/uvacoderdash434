@@ -9,11 +9,15 @@ jobs:
     name: Verify Pull Request
     runs-on: ubuntu-latest
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
+
       - uses: deepakputhraya/action-pr-title@master
         name: Validate PR Title
         continue-on-error: false
@@ -23,6 +27,7 @@ jobs:
           prefix_case_sensitive: true
           max_length: 60
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: mshick/add-pr-comment@v1
         name: Comment on PR
         if: ${{ failure() }}
@@ -35,14 +40,19 @@ jobs:
             Example: `feat(core): validations PRO-10`
 
             See more in `/docs/RELEASE.md`.
+
       - uses: c-hive/gha-yarn-cache@v2
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
+
       - name: Install dependencies
         run: yarn
+
       - name: Lint Code
         run: yarn lint
+
       - name: Build
         run: yarn build
