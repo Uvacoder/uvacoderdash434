@@ -3,25 +3,33 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - production
+      - testing
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: c-hive/gha-yarn-cache@v2
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
+
       - name: Install dependencies
         run: yarn
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
