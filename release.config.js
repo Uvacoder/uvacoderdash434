@@ -1,14 +1,15 @@
 module.exports = {
+  repositoryUrl: 'https://github.com/polpenaloza/react-me.com',
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     [
       '@semantic-release/changelog',
       {
-        changelogFile: 'docs/CHANGELOG.md',
+        changelogFile: './docs/CHANGELOG.md',
       },
     ],
-    ['@semantic-release/github', { assets: [{ path: 'docs/CHANGELOG.md' }] }],
+    ['@semantic-release/github', { assets: [{ path: './docs/CHANGELOG.md' }] }],
     '@semantic-release/git',
   ],
   branches: [
@@ -16,6 +17,6 @@ module.exports = {
     { name: '2.x', range: '2.x', channel: '2.x' }, // Only after the `2.x` is created in the repo
     { name: 'beta', channel: 'beta', prerelease: true }, // `prerelease` is set to `beta` as it is the value of `name`
     { name: 'main' },
+    { name: 'testing' },
   ],
-  // dryRun: true,
 }
