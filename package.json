@@ -34,7 +34,7 @@
     ]
   },
   "lint-prepush": {
-    "base": "develop",
+    "base": "main",
     "tasks": {
       "*.{js,jsx,ts,tsx}": [
         "eslint"
@@ -63,6 +63,7 @@
     "commitlint": "^17.0.3",
     "conventional-changelog-eslint": "^3.0.9",
     "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.0",
     "lint-prepush": "^2.2.1",
     "lint-staged": "^13.0.3",
