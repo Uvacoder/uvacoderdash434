@@ -1,7 +1,7 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
-import { Home } from './routes/home'
 import { BinaryClock } from './routes/binary-clock'
+import { Home } from './routes/home'
 import './App.css'
 
 export default function App() {
