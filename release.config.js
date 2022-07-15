@@ -29,5 +29,5 @@ module.exports = {
       },
     ],
   ],
-  branches: ['master', 'next'],
+  branches: ['main'],
 }
