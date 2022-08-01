@@ -22,10 +22,5 @@ module.exports = {
     //   },
     // ],
   ],
-  branches: [
-    { name: '1.x', range: '1.x', channel: '1.x' }, // Only after the `1.x` is created in the repo
-    { name: '2.x', range: '2.x', channel: '2.x' }, // Only after the `2.x` is created in the repo
-    { name: 'testing', channel: 'testing', prerelease: true },
-    { name: 'production', channel: 'prod' },
-  ],
+  branches: [{ name: 'testing', prerelease: true }, { name: 'production' }],
 }
