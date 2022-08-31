@@ -1,15 +1,15 @@
-import { Header } from '../../shared/header'
+import { Container } from '../../shared/Container'
+import { Footer } from '../../shared/Footer'
+import { Header } from '../../shared/Header'
 
 export const Home = () => {
   return (
     <>
-      <div className='text-center bg-gradient-to-r from-[#543ab7] to-[#00acc1] text-white'>
-        <div className='flex h-[60vh] flex-col justify-center items-center'>
-          <Header />
-        </div>
-        <div>
+      <Container classNames='bg-gradient-to-r from-[#543ab7] to-[#00acc1] text-white'>
+        <Header />
+        <div className='h-[100vh] w-[100vw] flex items-end'>
           <svg
-            className='relative w-full h-[15vh] mb-[7px] min-h[100px] max-h[150px]'
+            className='relative w-full h-[30vh] mb-[0px] min-h[100px] max-h[150px]'
             xmlns='http://www.w3.org/2000/svg'
             xmlnsXlink='http://www.w3.org/1999/xlink'
             viewBox='0 24 150 28'
@@ -45,17 +45,9 @@ export const Home = () => {
             </g>
           </svg>
         </div>
-      </div>
+      </Container>
 
-      <div className='relative h-[20vh] text-center bg-white'>
-        <a
-          target={'_blank'}
-          href='https://twitter.com/polpenaloza'
-          rel='noopener noreferrer'
-        >
-          @polpenaloza
-        </a>
-      </div>
+      <Footer />
     </>
   )
 }

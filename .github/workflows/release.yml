@@ -6,9 +6,11 @@ on:
       - production
       - testing
 
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
-  release:
-    name: Release
+  Release:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
@@ -20,17 +22,18 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: c-hive/gha-yarn-cache@v2
-
       - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "lts/*"
-
-      - name: Install dependencies
-        run: yarn
+        uses: ./.github/actions/node
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+
+      # - name: Slack Error Notification
+      #   uses: ./.github/actions/slack-error
+      #   if: failure()
+
+      # - name: Slack Success Notification
+      #   uses: ./.github/actions/slack-success
+      #   if: success()

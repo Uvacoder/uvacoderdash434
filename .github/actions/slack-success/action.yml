@@ -1,0 +1,37 @@
+# .github/actions/slack-success/action.yml
+
+name: "Slack success integration"
+description: "Setup slack success notifications"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: 8398a7/action-slack@v3
+      with:
+        status: custom
+        fields: all
+        custom_payload: |
+          {
+            text: `${process.env.AS_WORKFLOW} Passed :white_check_mark:`,
+            attachments: [{
+              color: 'good',
+              text: `${process.env.AS_PULL_REQUEST}, ${process.env.AS_WORKFLOW} workflow has SUCCEEDED! :tada: :tada:`,
+              fields: [
+                {
+                  title: "Job",
+                  value: `${process.env.AS_JOB}`,
+                  short: false
+                },
+                {
+                  title: "Author",
+                  value: `${process.env.AS_AUTHOR}`,
+                  short: false
+                },
+                {
+                  title: "Execution Time",
+                  value: `${process.env.AS_TOOK}`,
+                  short: false
+                }
+              ]
+            }]
+          }
