@@ -1,23 +1,16 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 
-import { HashRouter, Routes, Route } from 'react-router-dom'
-
-import { Loader } from './shared/loader'
+import { AppProviders } from './context/app-providers'
+import { MyRoutes } from './routes'
+import { Loader } from './shared/Loader'
 import './App.css'
-const BinaryClock = lazy(() => import('./routes/binary-clock'))
-const Home = lazy(() => import('./routes/home'))
 
 export default function App() {
   return (
-    <HashRouter>
+    <AppProviders>
       <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path='/' element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-          <Route path='/binary-clock' element={<BinaryClock />} />
-        </Routes>
+        <MyRoutes />
       </Suspense>
-    </HashRouter>
+    </AppProviders>
   )
 }
