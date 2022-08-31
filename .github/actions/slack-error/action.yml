@@ -1,0 +1,39 @@
+# .github/actions/slack-error/action.yml
+
+name: "Slack error integration"
+description: "Setup slack error notifications"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: 8398a7/action-slack@v3
+      with:
+        status: custom
+        fields: all
+        mention: "here"
+        if_mention: failure
+        custom_payload: |
+          {
+            text: `${process.env.AS_WORKFLOW} Failed :x:`,
+            attachments: [{
+              color: 'danger',
+              text: `${process.env.AS_PULL_REQUEST}, ${process.env.AS_WORKFLOW} workflow has FAILED! :rotating_light: :rotating_light:`,
+              fields: [
+                {
+                  title: "Job",
+                  value: `${process.env.AS_JOB}`,
+                  short: false
+                },
+                {
+                  title: "Author",
+                  value: `${process.env.AS_AUTHOR}`,
+                  short: false
+                },
+                {
+                  title: "Execution Time",
+                  value: `${process.env.AS_TOOK}`,
+                  short: false
+                }
+              ]
+            }]
+          }

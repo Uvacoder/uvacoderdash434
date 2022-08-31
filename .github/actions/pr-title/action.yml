@@ -1,0 +1,35 @@
+# .github/actions/pr-title/action.yml
+
+name: "PR Title Validation"
+description: "Verify that the PR title complies with semantic-release standards"
+
+inputs:
+  token:
+    description: "A Github PAT"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: deepakputhraya/action-pr-title@master
+      name: Validate PR Title
+      continue-on-error: false
+      with:
+        regex: '\w+\(([\w]+)\)+:( \w+)( \w+\-\d+)?'
+        allowed_prefixes: "feature,feat,fix,hotfix,chore,perf,refactor,test"
+        prefix_case_sensitive: true
+        max_length: 60
+        github_token: ${{ inputs.token }}
+
+    - uses: mshick/add-pr-comment@v1
+      name: Comment on PR
+      if: ${{ failure() }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+      with:
+        message: |
+          Please fix the title of this PR.
+
+          Example: `feat(core): validations PRO-10`
+
+          See more in `/docs/RELEASE.md`.
