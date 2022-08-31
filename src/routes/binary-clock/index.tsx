@@ -1,17 +1,19 @@
-import Clock from '../../shared/binary/binary-clock'
-import { Header } from '../../shared/header'
+import Clock from '../../shared/Binary'
+import { Container } from '../../shared/Container'
+import { Footer } from '../../shared/Footer'
+import { Header } from '../../shared/Header'
 
 export const BinaryClock = () => {
   return (
     <>
-      <div className='bg-[#27272c] flex flex-col h-[100vh] w-[100vw] justify-stretch items-center text-white'>
-        <div className='flex h-1/3 flex-col justify-center items-center'>
-          <Header />
-        </div>
+      <Container classNames='bg-[#27272c] text-white'>
+        <Header />
         <div className='flex'>
           <Clock />
         </div>
-      </div>
+      </Container>
+
+      <Footer classNames='bg-[#27272c] text-white' />
     </>
   )
 }
