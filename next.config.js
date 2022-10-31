@@ -6,6 +6,7 @@ const nextConfig = {
   exportPathMap: function () {
     return {
       '/': { page: '/' },
+      '/binary-clock': { page: '/binary-clock' },
     }
   },
 }
