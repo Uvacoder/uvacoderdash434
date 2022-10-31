@@ -1,78 +1,74 @@
 {
-  "name": "react-me.com",
-  "version": "0.0.0-development",
-  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "dependencies": {
-    "@tanstack/react-query": "^4.2.3",
-    "@tanstack/react-query-devtools": "^4.2.3",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.2.5",
-    "@types/jest": "^28.1.5",
-    "@types/node": "^18.0.4",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "classnames": "^2.3.1",
-    "history": "^5.3.0",
-    "i18next": "^21.9.1",
-    "i18next-browser-languagedetector": "^6.1.5",
-    "i18next-http-backend": "^1.4.1",
+    "@tanstack/react-query": "^4.13.5",
+    "classnames": "^2.3.2",
+    "i18next": "^22.0.4",
+    "i18next-browser-languagedetector": "^7.0.0",
+    "i18next-http-backend": "^2.0.0",
+    "next": "^13.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.18.5",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.0"
+    "react-i18next": "^12.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "lint": "eslint .",
-    "semantic-release": "semantic-release",
-    "prepare": "husky install",
-    "format": "prettier --write ."
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@tanstack/react-query-devtools": "^4.13.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.8",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "autoprefixer": "^10.4.13",
+    "commitlint": "^17.1.2",
+    "conventional-changelog-eslint": "^3.0.9",
+    "eslint": "^8.26.0",
+    "eslint-config-next": "^13.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.18",
+    "precise-commits": "^1.0.2",
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.5",
+    "tailwindcss": "^3.2.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.5",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "autoprefixer": "^10.4.7",
-    "commitlint": "^17.0.3",
-    "conventional-changelog-eslint": "^3.0.9",
-    "eslint": "^8.19.0",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "postcss": "^8.4.14",
-    "precise-commits": "^1.0.2",
-    "prettier": "^2.7.1",
-    "semantic-release": "^19.0.3",
-    "tailwindcss": "^3.1.6"
-  },
+  "name": "react-me.com",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/polpenaloza/react-me.com.git"
-  }
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write .",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "start": "next start"
+  },
+  "version": "0.0.0-development"
 }

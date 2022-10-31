@@ -1,12 +1,17 @@
-import { Container } from '../../shared/Container'
-import { Footer } from '../../shared/Footer'
-import { Header } from '../../shared/Header'
+import { useTranslation } from 'react-i18next'
+
+import { App } from '../components/app'
+import { Container } from '../components/Container'
+import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
 
 export const Home = () => {
+  const { t } = useTranslation()
   return (
-    <>
+    <App>
       <Container classNames='bg-gradient-to-r from-[#543ab7] to-[#00acc1] text-white'>
         <Header />
+        <div>{t('welcome')}</div>
         <div className='h-[100vh] w-[100vw] flex items-end'>
           <svg
             className='relative w-full h-[30vh] mb-[0px] min-h[100px] max-h[150px]'
@@ -47,8 +52,8 @@ export const Home = () => {
         </div>
       </Container>
 
-      <Footer />
-    </>
+      <Footer classNames='bg-white text-black' />
+    </App>
   )
 }
 

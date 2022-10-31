@@ -2,9 +2,8 @@ import { ReactNode, useState } from 'react'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { HashRouter as Router } from 'react-router-dom'
 
-import { ErrorBoundary } from '../shared/ErrorBoundary'
+import { ErrorBoundary } from '../components/ErrorBoundary'
 // import translation catalog
 import './i18next.config'
 
@@ -30,9 +29,7 @@ export function AppProviders({ pageProps, children }: AppProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
-      <ErrorBoundary>
-        <Router>{children}</Router>
-      </ErrorBoundary>
+      <ErrorBoundary>{children}</ErrorBoundary>
     </QueryClientProvider>
   )
 }

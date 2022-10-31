@@ -1,8 +1,96 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
 body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
+  font-family: Lato, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 15s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Binary Clock */
+.pip {
+  width: 17px;
+  height: 17px;
+  margin: 7px;
+  background-color: #525252;
+  border-radius: 100%;
+  transition: all 0.3s ease-in;
+}
+
+.pip--on {
+  background-color: #48d8b8;
+  transform: scale(1.1);
+}
+
+.clock {
+  display: flex;
+}
+
+.binary-digit-group {
+  display: flex;
+  margin: 0 6px;
+}
+
+/* Loader */
 svg.tea {
   --secondary: #33406f;
 }

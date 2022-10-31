@@ -9,3 +9,5 @@
 .husky
 .storybook
 .vscode
+.next
+.build
