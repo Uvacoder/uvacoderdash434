@@ -64,6 +64,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "export": "next export",
     "format": "prettier --write .",
     "lint": "next lint",
     "prepare": "husky install",
