@@ -1,11 +1,15 @@
 # Add files here to ignore them from prettier formatting
 
-/dist
-/out
-/coverage
-/__mocks__
 .circleci
 .github
 .husky
 .storybook
 .vscode
+.next
+build/
+dist/
+node_modules/
+out/
+coverage/
+next-env.*
+

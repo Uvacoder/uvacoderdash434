@@ -1,18 +1,12 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-// don't want to use this?
-// have a look at the Quick start guide
-// for passing in lng and translations on init
+import englishTranslations from '../public/locales/en/translation.json'
+import spanishTranslations from '../public/locales/es/translation.json'
 
 // eslint-disable-next-line import/no-named-as-default-member
 i18n
-  // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
-  // learn more: https://github.com/i18next/i18next-http-backend
-  // want your translations to be loaded from a professional CDN? => https://github.com/locize/react-tutorial#step-2---use-the-locize-cdn
-  .use(Backend)
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
@@ -23,6 +17,13 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: false,
+    resources: {
+      en: { translation: englishTranslations },
+      es: { translation: spanishTranslations },
+    },
+    interpolation: {
+      escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
+    },
   })
 
 export default i18n

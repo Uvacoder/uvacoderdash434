@@ -6,7 +6,7 @@ interface iFooter {
 
 export const Footer = ({ classNames }: iFooter) => {
   const computedClassNames = classnames([
-    'relative h-[20vh] text-center',
+    'relative h-[20vh] w-[100vw] text-center',
     classNames,
   ])
   return (
