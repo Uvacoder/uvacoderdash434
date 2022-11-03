@@ -1,7 +1,5 @@
 import { memo, useEffect, useState } from 'react'
 
-import './binary-clock.css'
-
 type BinaryDigitClockProps = number
 type BinaryGroupDigitClockProps = [BinaryDigitClockProps]
 
