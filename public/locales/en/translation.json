@@ -1,3 +1,5 @@
 {
-  "welcome": "Welcome to my page"
+  "welcome": "Welcome to my page",
+  "world-clock": "Just a binary clock",
+  "dynamic-route": "Dynamic Route"
 }
