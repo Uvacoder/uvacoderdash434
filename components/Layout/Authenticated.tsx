@@ -3,11 +3,9 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { mdiForwardburger, mdiBackburger, mdiMenu } from '@mdi/js'
 import dynamic from 'next/dynamic'
 
-import { initialStyleState } from '../../core/initialState'
 import menuAside from '../../core/menuAside'
 import menuNavBar from '../../core/menuNavBar'
-// import { useAppDispatch, useAppSelector } from '../../src/stores/hooks'
-// import { setUser } from '../../src/stores/mainSlice'
+import { useAppStore, iAppState } from '../../core/store'
 import { App } from './app'
 
 const AsideMenu = dynamic(() => import('../AsideMenu/AsideMenu'))
@@ -21,21 +19,17 @@ type Props = {
 }
 
 export default function LayoutAuthenticated({ children }: Props) {
-  // const dispatch = useAppDispatch()
+  const setUser = useAppStore((state: iAppState) => state.setUser)
+  const darkMode = useAppStore((state: iAppState) => state.darkMode)
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setUser({
-  //       name: 'John Doe',
-  //       email: 'john@example.com',
-  //       avatar:
-  //         'https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93',
-  //     })
-  //   )
-  // })
-
-  // const darkMode = useAppSelector((state) => state.style.darkMode)
-  const darkMode = initialStyleState.darkMode
+  useEffect(() => {
+    setUser({
+      name: 'John Doe',
+      email: 'john@example.com',
+      avatar:
+        'https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93',
+    })
+  })
 
   const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false)
   const [isAsideLgActive, setIsAsideLgActive] = useState(false)
@@ -46,7 +40,7 @@ export default function LayoutAuthenticated({ children }: Props) {
     <App>
       <div
         className={`${
-          darkMode ? 'dark' : 'white'
+          darkMode ? 'dark' : ''
         } overflow-hidden lg:overflow-visible`}
       >
         <div
@@ -86,10 +80,10 @@ export default function LayoutAuthenticated({ children }: Props) {
           <FooterBar>
             Code on{` `}
             <a
-              href='https://tailwind-vue.justboil.me/'
+              href='https://github.com/polpenaloza/react-me.com'
               target='_blank'
               rel='noreferrer'
-              className='text-blue-600'
+              className='text-blue-600 text-xs md:text-sm'
             >
               GitHub
             </a>

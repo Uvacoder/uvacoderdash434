@@ -28,9 +28,6 @@ const ChartLineSample = dynamic(() => import('../components/Charts/LineSample'))
 const NotificationBar = dynamic(
   () => import('../components/Notification/NotificationBar')
 )
-const SectionBannerStarOnGitHub = dynamic(
-  () => import('../components/Section/SectionBannerStarOnGitHub')
-)
 const SectionMain = dynamic(() => import('../components/Section/SectionMain'))
 const SectionTitleLineWithButton = dynamic(
   () => import('../components/Section/SectionTitleLineWithButton')
@@ -112,7 +109,7 @@ const Dashboard = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6'>
           <div className='flex flex-col justify-between'>
-            {transactions.map((transaction: Transaction) => (
+            {transactions?.map((transaction: Transaction) => (
               <CardBoxTransaction
                 key={transaction.id}
                 transaction={transaction}
@@ -120,14 +117,10 @@ const Dashboard = () => {
             ))}
           </div>
           <div className='flex flex-col justify-between'>
-            {clientsListed.map((client: Client) => (
+            {clientsListed?.map((client: Client) => (
               <CardBoxClient key={client.id} client={client} />
             ))}
           </div>
-        </div>
-
-        <div className='my-6'>
-          <SectionBannerStarOnGitHub />
         </div>
 
         <SectionTitleLineWithButton icon={mdiChartPie} title='Trends overview'>

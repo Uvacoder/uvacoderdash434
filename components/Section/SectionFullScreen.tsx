@@ -5,7 +5,7 @@ import {
   gradientBgDark,
   gradientBgPinkRed,
 } from '../../core/colors'
-import { initialStyleState } from '../../core/initialState'
+import { iAppState, useAppStore } from '../../core/store'
 import { BgKey } from '../../interfaces'
 // import { useAppSelector } from '../src/stores/hooks'
 
@@ -15,8 +15,7 @@ type Props = {
 }
 
 export default function SectionFullScreen({ bg, children }: Props) {
-  // const darkMode = useAppSelector((state) => state.style.darkMode)
-  const darkMode = initialStyleState.darkMode
+  const darkMode = useAppStore((state: iAppState) => state.darkMode)
 
   let componentClass = 'flex min-h-screen items-center justify-center '
 

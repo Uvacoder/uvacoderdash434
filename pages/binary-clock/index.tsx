@@ -1,23 +1,24 @@
 import type { ReactElement } from 'react'
 
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'react-i18next'
 
-import Clock from '../../components/Binary'
-import LayoutAuthenticated from '../../components/Layout/Authenticated'
+const Clock = dynamic(() => import('../../components/BinaryClock'))
+const LayoutAuthenticated = dynamic(
+  () => import('../../components/Layout/Authenticated')
+)
+const SectionMain = dynamic(
+  () => import('../../components/Section/SectionMain')
+)
 
 const BinaryClock = () => {
   const { t } = useTranslation()
   return (
-    <div className='bg-[#27272c] text-white'>
-      <div
-        className='flex justify-between items-center flex flex-col'
-        style={{ height: 'calc(100vh - 120px)' }}
-      >
-        <div className='font-bold text-3xl p-3'>{t('world-clock')}</div>
-        <Clock />
-        <div></div>
-      </div>
-    </div>
+    <SectionMain className='flex justify-between items-center flex flex-col'>
+      <div className='font-bold text-3xl p-3'>{t('world-clock')}</div>
+      <Clock />
+      <div></div>
+    </SectionMain>
   )
 }
 

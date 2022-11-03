@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { initialStyleState } from '../../core/initialState'
-
-// import { useAppSelector } from '../src/stores/hooks'
+import { useAppStore, iAppState } from '../../core/store'
 
 type Props = {
   zIndex?: string
@@ -17,8 +15,8 @@ export default function OverlayLayer({
   children,
   ...props
 }: Props) {
-  // const overlayStyle = useAppSelector((state) => state.style.overlayStyle)
-  const overlayStyle = initialStyleState.overlayStyle
+  const styleState = useAppStore((state: iAppState) => state.style)
+  const overlayStyle = styleState.overlayStyle
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()

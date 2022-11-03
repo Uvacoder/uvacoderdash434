@@ -1,6 +1,6 @@
 import * as styles from './styles'
 
-interface StyleState {
+export interface StyleState {
   asideStyle: string
   asideScrollbarsStyle: string
   asideBrandStyle: string
@@ -28,7 +28,7 @@ export const initialStyleState: StyleState = {
   darkMode: false,
 }
 
-interface MainState {
+export interface MainState {
   userName: string
   userEmail: null | string
   userAvatar: null | string

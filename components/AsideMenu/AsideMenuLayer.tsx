@@ -2,7 +2,7 @@ import React from 'react'
 
 import { mdiLogout, mdiClose } from '@mdi/js'
 
-import { initialStyleState } from '../../core/initialState'
+import { useAppStore, iAppState } from '../../core/store'
 import { MenuAsideItem } from '../../interfaces'
 import BaseIcon from '../Icon/BaseIcon'
 import AsideMenuItem from './AsideMenuItem'
@@ -19,10 +19,12 @@ export default function AsideMenuLayer({
   className = '',
   ...props
 }: Props) {
-  const asideStyle = initialStyleState.asideStyle
-  const asideBrandStyle = initialStyleState.asideBrandStyle
-  const asideScrollbarsStyle = initialStyleState.asideScrollbarsStyle
-  const darkMode = initialStyleState.darkMode
+  const styleState = useAppStore((state: iAppState) => state.style)
+
+  const asideStyle = styleState.asideStyle
+  const asideBrandStyle = styleState.asideBrandStyle
+  const asideScrollbarsStyle = styleState.asideScrollbarsStyle
+  const darkMode = styleState.darkMode
 
   const logoutItem: MenuAsideItem = {
     label: 'Logout',
@@ -41,7 +43,7 @@ export default function AsideMenuLayer({
       className={`${className} zzz lg:py-2 lg:pl-2 w-60 fixed flex z-40 top-0 h-screen transition-position overflow-hidden`}
     >
       <div
-        className={`lg:rounded-2xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900 ${asideStyle}`}
+        className={`lg:rounded-md flex-1 flex flex-col overflow-hidden dark:bg-slate-900 ${asideStyle}`}
       >
         <div
           className={`flex flex-row h-14 items-center justify-between dark:bg-slate-900 ${asideBrandStyle}`}

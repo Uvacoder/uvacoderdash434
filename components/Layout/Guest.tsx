@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { initialStyleState } from '../../core/initialState'
-// import { useAppSelector } from '../../src/stores/hooks'
+import { useAppStore, iAppState } from '../../core/store'
 import { App } from './app'
 
 type Props = {
@@ -9,8 +8,7 @@ type Props = {
 }
 
 export default function LayoutGuest({ children }: Props) {
-  // const darkMode = useAppSelector((state) => state.style.darkMode)
-  const darkMode = initialStyleState.darkMode
+  const darkMode = useAppStore((state: iAppState) => state.darkMode)
 
   return (
     <App>

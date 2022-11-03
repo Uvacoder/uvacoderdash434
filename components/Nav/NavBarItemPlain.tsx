@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { initialStyleState } from '../../core/initialState'
-// import { useAppSelector } from '../src/stores/hooks'
+import { iAppState, useAppStore } from '../../core/store'
 
 type Props = {
   display?: string
@@ -16,10 +15,9 @@ export default function NavBarItemPlain({
   onClick,
   children,
 }: Props) {
-  // const navBarItemLabelStyle = useAppSelector((state) => state.style.navBarItemLabelStyle)
-  // const navBarItemLabelHoverStyle = useAppSelector((state) => state.style.navBarItemLabelHoverStyle)
-  const navBarItemLabelStyle = initialStyleState.navBarItemLabelStyle
-  const navBarItemLabelHoverStyle = initialStyleState.navBarItemLabelHoverStyle
+  const styleState = useAppStore((state: iAppState) => state.style)
+  const navBarItemLabelStyle = styleState.navBarItemLabelStyle
+  const navBarItemLabelHoverStyle = styleState.navBarItemLabelHoverStyle
 
   const classBase =
     'items-center cursor-pointer dark:text-white dark:hover:text-slate-400'

@@ -3,10 +3,8 @@ import React, { useState } from 'react'
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import Link from 'next/link'
 
-import { initialMainState, initialStyleState } from '../../core/initialState'
+import { useAppStore, iAppState } from '../../core/store'
 import { MenuNavBarItem } from '../../interfaces'
-// import { useAppDispatch, useAppSelector } from '../src/stores/hooks'
-// import { setDarkMode } from '../src/stores/styleSlice'
 import UserAvatarCurrentUser from '../Avatar/UserAvatarCurrentUser'
 import BaseDivider from '../Base/BaseDivider'
 import BaseIcon from '../Icon/BaseIcon'
@@ -17,26 +15,15 @@ type Props = {
 }
 
 export default function NavBarItem({ item }: Props) {
-  // const dispatch = useAppDispatch()
-
-  // const navBarItemLabelActiveColorStyle = useAppSelector(
-  //   (state) => state.style.navBarItemLabelActiveColorStyle
-  // )
-  // const navBarItemLabelStyle = useAppSelector(
-  //   (state) => state.style.navBarItemLabelStyle
-  // )
-  // const navBarItemLabelHoverStyle = useAppSelector(
-  //   (state) => state.style.navBarItemLabelHoverStyle
-  // )
+  const setDarkMode = useAppStore((state: iAppState) => state.setDarkMode)
+  const styleState = useAppStore((state: iAppState) => state.style)
+  const mainState = useAppStore((state: iAppState) => state.main)
   const navBarItemLabelActiveColorStyle =
-    initialStyleState.navBarItemLabelActiveColorStyle
+    styleState.navBarItemLabelActiveColorStyle
+  const navBarItemLabelStyle = styleState.navBarItemLabelStyle
+  const navBarItemLabelHoverStyle = styleState.navBarItemLabelHoverStyle
 
-  const navBarItemLabelStyle = initialStyleState.navBarItemLabelStyle
-
-  const navBarItemLabelHoverStyle = initialStyleState.navBarItemLabelHoverStyle
-
-  // const userName = useAppSelector((state) => state.main.userName)
-  const userName = initialMainState.userName
+  const userName = mainState.userName
 
   const [isDropdownActive, setIsDropdownActive] = useState(false)
 
@@ -57,8 +44,7 @@ export default function NavBarItem({ item }: Props) {
     }
 
     if (item.isToggleLightDark) {
-      // dispatch(setDarkMode(null))
-      // console.log('jaja')
+      setDarkMode()
     }
   }
 

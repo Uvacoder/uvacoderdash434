@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { getButtonColor } from '../../core/colors'
-import { initialStyleState } from '../../core/initialState'
+import { iAppState, useAppStore } from '../../core/store'
 import { MenuAsideItem } from '../../interfaces'
 import BaseIcon from '../Icon/BaseIcon'
 import AsideMenuList from './AsideMenuList'
@@ -18,12 +18,11 @@ type Props = {
 const AsideMenuItem = ({ item, isDropdownList = false }: Props) => {
   const [isLinkActive, setIsLinkActive] = useState(false)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
+  const styleState = useAppStore((state: iAppState) => state.style)
 
-  const asideMenuItemStyle = initialStyleState.asideMenuItemStyle
-
-  const asideMenuDropdownStyle = initialStyleState.asideMenuDropdownStyle
-
-  const asideMenuItemActiveStyle = initialStyleState.asideMenuItemActiveStyle
+  const asideMenuItemStyle = styleState.asideMenuItemStyle
+  const asideMenuDropdownStyle = styleState.asideMenuDropdownStyle
+  const asideMenuItemActiveStyle = styleState.asideMenuItemActiveStyle
 
   const activeClassAddon =
     !item.color && isLinkActive ? asideMenuItemActiveStyle : ''
