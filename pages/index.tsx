@@ -14,7 +14,7 @@ const Home = () => {
   const darkMode = useAppStore((state: iAppState) => state.darkMode)
   const { t } = useTranslation()
   return (
-    <SectionMain className='flex justify-between items-center flex flex-col'>
+    <SectionMain className='flex justify-between items-center flex-col'>
       <div className='font-bold text-3xl p-3'>{t('welcome')}</div>
       <svg
         className='relative w-full h-[30vh] mb-[0px] min-h[100px] max-h[150px]'

@@ -14,7 +14,7 @@ const SectionMain = dynamic(
 const BinaryClock = () => {
   const { t } = useTranslation()
   return (
-    <SectionMain className='flex justify-between items-center flex flex-col'>
+    <SectionMain className='flex justify-between items-center flex-col'>
       <div className='font-bold text-3xl p-3'>{t('world-clock')}</div>
       <Clock />
       <div></div>
