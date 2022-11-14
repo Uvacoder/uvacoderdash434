@@ -1,6 +1,3 @@
-import React, { useState } from 'react'
-import type { ReactElement } from 'react'
-
 import {
   mdiAccountMultiple,
   mdiCartOutline,
@@ -12,6 +9,7 @@ import {
 } from '@mdi/js'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import React, { ReactElement, useState } from 'react'
 
 import { sampleChartData } from '../components/Charts/config'
 import { useSampleClients, useSampleTransactions } from '../hooks/sampleData'

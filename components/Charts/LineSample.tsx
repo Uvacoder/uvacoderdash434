@@ -1,14 +1,13 @@
-import React from 'react'
-
 import {
+  CategoryScale,
   Chart,
+  LinearScale,
+  LineController,
   LineElement,
   PointElement,
-  LineController,
-  LinearScale,
-  CategoryScale,
   Tooltip,
 } from 'chart.js'
+import React from 'react'
 import { Line } from 'react-chartjs-2'
 
 Chart.register(

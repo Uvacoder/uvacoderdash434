@@ -5,7 +5,7 @@ import BaseLevel from '../Base/BaseLevel'
 import JustboilLogo from '../JustBoil/Logo'
 
 type Props = {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export default function FooterBar({ children }: Props) {
@@ -24,9 +24,7 @@ export default function FooterBar({ children }: Props) {
             >
               @polpenaloza
             </a>
-            .
           </b>
-          {` `}
           {children}
         </div>
         <div className='md:py-2'>

@@ -1,9 +1,9 @@
+import { mdiChevronDown, mdiChevronUp } from '@mdi/js'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
-import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-import Link from 'next/link'
-
-import { useAppStore, iAppState } from '../../core/store'
+import { iAppState, useAppStore } from '../../core/store'
+import { useOuterClick } from '../../hooks/useOuterClick'
 import { MenuNavBarItem } from '../../interfaces'
 import UserAvatarCurrentUser from '../Avatar/UserAvatarCurrentUser'
 import BaseDivider from '../Base/BaseDivider'
@@ -22,6 +22,9 @@ export default function NavBarItem({ item }: Props) {
     styleState.navBarItemLabelActiveColorStyle
   const navBarItemLabelStyle = styleState.navBarItemLabelStyle
   const navBarItemLabelHoverStyle = styleState.navBarItemLabelHoverStyle
+  const innerClickRef = useOuterClick(() => {
+    setIsDropdownActive(false)
+  })
 
   const userName = mainState.userName
 
@@ -57,6 +60,7 @@ export default function NavBarItem({ item }: Props) {
             : ''
         }`}
         onClick={handleMenuClick}
+        ref={innerClickRef}
       >
         {item.isCurrentUser && (
           <UserAvatarCurrentUser className='w-6 h-6 mr-3 inline-flex' />
@@ -96,7 +100,12 @@ export default function NavBarItem({ item }: Props) {
 
   if (item.href) {
     return (
-      <Link href={item.href} target={item.target} className={componentClass}>
+      <Link
+        passHref
+        href={item.href}
+        target={item.target}
+        className={componentClass}
+      >
         {NavBarItemComponentContents}
       </Link>
     )

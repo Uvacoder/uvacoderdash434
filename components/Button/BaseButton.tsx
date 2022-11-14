@@ -1,6 +1,5 @@
-import React from 'react'
-
 import Link from 'next/link'
+import React from 'react'
 
 import { getButtonColor } from '../../core/colors'
 import { ColorButtonKey } from '../../interfaces'
@@ -21,6 +20,7 @@ type Props = {
   active?: boolean
   disabled?: boolean
   roundedFull?: boolean
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.MouseEvent) => void
 }
 
@@ -83,9 +83,9 @@ export default function BaseButton({
   if (href && !disabled) {
     return (
       <Link
+        passHref
         href={href}
         target={target}
-        passHref
         className={componentClassString}
       >
         {componentChildren}

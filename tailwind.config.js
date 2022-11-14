@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -28,7 +29,13 @@ module.exports = {
         position: 'right, left, top, bottom, margin, padding',
         textColor: 'color',
       },
-      keyframes: {
+      colors: {
+        black: colors.black,
+        white: colors.white,
+        gray: colors.gray,
+        accent: colors.green,
+      },
+      keyframes: (theme) => ({
         'fade-out': {
           from: { opacity: 1 },
           to: { opacity: 0 },
@@ -37,10 +44,26 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
-      },
+        blink: {
+          '0%, 100%': { color: 'transparent' },
+          '50%': { color: theme('colors.accent.500') },
+        },
+        bounce: {
+          '0%, 100%': {
+            transform: 'translateY(-25%)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+      }),
       animation: {
         'fade-out': 'fade-out 250ms ease-in-out',
         'fade-in': 'fade-in 250ms ease-in-out',
+        blink: 'blink 1s step-end infinite',
+        bounce: 'bounce 1s infinite',
       },
     },
   },
@@ -53,6 +76,7 @@ module.exports = {
             const track = value === 'light' ? '100' : '900'
             const thumb = value === 'light' ? '300' : '600'
             const color = value === 'light' ? 'gray' : value
+
             return {
               scrollbarWidth: 'thin',
               scrollbarColor: `${theme(`colors.${color}.${thumb}`)} ${theme(
@@ -75,6 +99,5 @@ module.exports = {
         { values: theme('asideScrollbars') }
       )
     }),
-    require('@tailwindcss/line-clamp'),
   ],
 }

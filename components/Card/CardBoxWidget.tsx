@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { mdiCog } from '@mdi/js'
+import React from 'react'
 
 import { colorsText } from '../../core/colors'
 import { ColorKey, TrendType } from '../../interfaces'
