@@ -6,6 +6,7 @@ type Props = {
   display?: string
   useMargin?: boolean
   children: ReactNode
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.MouseEvent) => void
 }
 

@@ -1,6 +1,5 @@
-import React, { ReactNode } from 'react'
-
 import classnames from 'classnames/dedupe'
+import React, { ReactNode } from 'react'
 
 import { containerMaxW } from '../../core/config'
 
@@ -15,6 +14,7 @@ export default function SectionMain({ children, className }: Props) {
     containerMaxW,
     className,
   ])
+
   return (
     <section
       className={computedClasses}

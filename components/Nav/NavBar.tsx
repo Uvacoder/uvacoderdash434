@@ -1,6 +1,5 @@
-import React, { ReactNode, useState } from 'react'
-
 import { mdiClose, mdiDotsVertical } from '@mdi/js'
+import React, { ReactNode, useState } from 'react'
 
 import { containerMaxW } from '../../core/config'
 import { MenuNavBarItem } from '../../interfaces'

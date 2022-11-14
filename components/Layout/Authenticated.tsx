@@ -1,11 +1,10 @@
-import React, { ReactNode, useEffect, useState } from 'react'
-
-import { mdiForwardburger, mdiBackburger, mdiMenu } from '@mdi/js'
+import { mdiBackburger, mdiForwardburger, mdiMenu } from '@mdi/js'
 import dynamic from 'next/dynamic'
+import React, { ReactNode, useEffect, useState } from 'react'
 
 import menuAside from '../../core/menuAside'
 import menuNavBar from '../../core/menuNavBar'
-import { useAppStore, iAppState } from '../../core/store'
+import { iAppState, useAppStore } from '../../core/store'
 import { App } from './app'
 
 const AsideMenu = dynamic(() => import('../AsideMenu/AsideMenu'))
@@ -19,8 +18,14 @@ type Props = {
 }
 
 export default function LayoutAuthenticated({ children }: Props) {
+  const [isHydrated, setIsHydrated] = useState(false)
   const setUser = useAppStore((state: iAppState) => state.setUser)
   const darkMode = useAppStore((state: iAppState) => state.darkMode)
+
+  const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false)
+  const [isAsideLgActive, setIsAsideLgActive] = useState(false)
+
+  const layoutAsidePadding = 'xl:pl-60'
 
   useEffect(() => {
     setUser({
@@ -29,12 +34,10 @@ export default function LayoutAuthenticated({ children }: Props) {
       avatar:
         'https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93',
     })
-  })
+    setIsHydrated(true)
+  }, [setUser])
 
-  const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false)
-  const [isAsideLgActive, setIsAsideLgActive] = useState(false)
-
-  const layoutAsidePadding = 'xl:pl-60'
+  if (!isHydrated) return <div />
 
   return (
     <App>
@@ -54,6 +57,16 @@ export default function LayoutAuthenticated({ children }: Props) {
               isAsideMobileExpanded ? 'ml-60 lg:ml-0' : ''
             }`}
           >
+            <div className='px-2 flex items-center text-gray-700 dark:text-gray-200 font-mono font-bold'>
+              <a
+                href='https://github.com/polpenaloza/react-me.com'
+                target='_blank'
+                rel='noreferrer'
+              >
+                dev@polpenaloza: ~/$
+              </a>
+              <span className='animate-blink font-mono font-bold'>|</span>
+            </div>
             <NavBarItemPlain
               display='flex lg:hidden'
               onClick={() => setIsAsideMobileExpanded(!isAsideMobileExpanded)}
@@ -77,17 +90,7 @@ export default function LayoutAuthenticated({ children }: Props) {
             onAsideLgClose={() => setIsAsideLgActive(false)}
           />
           {children}
-          <FooterBar>
-            Code on{` `}
-            <a
-              href='https://github.com/polpenaloza/react-me.com'
-              target='_blank'
-              rel='noreferrer'
-              className='text-blue-600 text-xs md:text-sm'
-            >
-              GitHub
-            </a>
-          </FooterBar>
+          <FooterBar />
         </div>
       </div>
     </App>

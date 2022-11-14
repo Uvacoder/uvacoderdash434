@@ -1,6 +1,5 @@
-import React, { ReactNode, useState } from 'react'
-
 import { mdiClose } from '@mdi/js'
+import React, { ReactNode, useState } from 'react'
 
 import { colorsBgLight, colorsOutline } from '../../core/colors'
 import { ColorKey } from '../../interfaces'

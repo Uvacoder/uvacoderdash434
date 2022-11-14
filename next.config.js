@@ -8,10 +8,6 @@ const nextConfig = {
   },
   exportPathMap: async function (defaultPathMap) {
     return {
-      '/': { page: '/' },
-      '/binary-clock': { page: '/binary-clock' },
-      '/details': { page: '/details' },
-      '/dashboard': { page: '/dashboard' },
       ...defaultPathMap,
     }
   },

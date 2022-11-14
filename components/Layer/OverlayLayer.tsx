@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react'
 
-import { useAppStore, iAppState } from '../../core/store'
+import { iAppState, useAppStore } from '../../core/store'
 
 type Props = {
   zIndex?: string
   type?: string
   children?: ReactNode
+  // eslint-disable-next-line no-unused-vars
   onClick: (e: React.MouseEvent) => void
 }
 

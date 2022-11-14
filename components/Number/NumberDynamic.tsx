@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
 import numeral from 'numeral'
+import React, { useEffect, useState } from 'react'
 
 type Props = {
   value: number
@@ -24,8 +23,6 @@ const NumberDynamic = ({
 
   const grow = (growIncrement: number) => {
     const v = Math.ceil(newValue + growIncrement)
-
-    // console.log(v)
 
     if (v > value) {
       setNewValue(value)

@@ -13,6 +13,7 @@ type Props = {
   isModal?: boolean
   children: ReactNode
   footer?: ReactNode
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.MouseEvent) => void
 }
 

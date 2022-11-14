@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react'
-
 import dynamic from 'next/dynamic'
+import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { iAppState, useAppStore } from '../core/store'
@@ -13,6 +12,7 @@ const SectionMain = dynamic(() => import('../components/Section/SectionMain'))
 const Home = () => {
   const darkMode = useAppStore((state: iAppState) => state.darkMode)
   const { t } = useTranslation()
+
   return (
     <SectionMain className='flex justify-between items-center flex-col'>
       <div className='font-bold text-3xl p-3'>{t('welcome')}</div>

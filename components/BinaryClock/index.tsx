@@ -5,7 +5,7 @@ type BinaryGroupDigitClockProps = [BinaryDigitClockProps]
 
 function numberToBinary(base10Number: number) {
   const base2Values = [8, 4, 2, 1]
-  let output = [0, 0, 0, 0]
+  const output = [0, 0, 0, 0]
   let remainder = base10Number
 
   base2Values.forEach((val, idx) => {
@@ -22,11 +22,13 @@ function numberToBinary(base10Number: number) {
 
 function numberAsBinaryArrayPair(number: number) {
   const pair = []
+
   if (number < 10) {
     pair[0] = numberToBinary(0)
     pair[1] = numberToBinary(number)
   } else {
     const numberAsArray = String(number).split('')
+
     pair[0] = numberToBinary(parseInt(numberAsArray[0], 10))
     pair[1] = numberToBinary(parseInt(numberAsArray[1], 10))
   }
@@ -82,6 +84,7 @@ const Clock = () => {
       numberAsBinaryArrayPair(date.getMinutes()),
       numberAsBinaryArrayPair(date.getSeconds()),
     ] as any
+
     setGroupDigits(newGroupDigits)
   }
 

@@ -1,8 +1,7 @@
+import { mdiClose, mdiLogout } from '@mdi/js'
 import React from 'react'
 
-import { mdiLogout, mdiClose } from '@mdi/js'
-
-import { useAppStore, iAppState } from '../../core/store'
+import { iAppState, useAppStore } from '../../core/store'
 import { MenuAsideItem } from '../../interfaces'
 import BaseIcon from '../Icon/BaseIcon'
 import AsideMenuItem from './AsideMenuItem'
@@ -20,11 +19,11 @@ export default function AsideMenuLayer({
   ...props
 }: Props) {
   const styleState = useAppStore((state: iAppState) => state.style)
+  const darkMode = useAppStore((state: iAppState) => state.darkMode)
 
   const asideStyle = styleState.asideStyle
   const asideBrandStyle = styleState.asideBrandStyle
   const asideScrollbarsStyle = styleState.asideScrollbarsStyle
-  const darkMode = styleState.darkMode
 
   const logoutItem: MenuAsideItem = {
     label: 'Logout',

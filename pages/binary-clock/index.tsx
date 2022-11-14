@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react'
-
 import dynamic from 'next/dynamic'
+import type { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const Clock = dynamic(() => import('../../components/BinaryClock'))
@@ -13,6 +12,7 @@ const SectionMain = dynamic(
 
 const BinaryClock = () => {
   const { t } = useTranslation()
+
   return (
     <SectionMain className='flex justify-between items-center flex-col'>
       <div className='font-bold text-3xl p-3'>{t('world-clock')}</div>

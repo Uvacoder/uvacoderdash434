@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-
 import { mdiMinus, mdiPlus } from '@mdi/js'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 
 import { getButtonColor } from '../../core/colors'
 import { iAppState, useAppStore } from '../../core/store'
@@ -78,9 +77,9 @@ const AsideMenuItem = ({ item, isDropdownList = false }: Props) => {
     <li>
       {item.href && (
         <Link
+          passHref
           href={item.href}
           target={item.target}
-          passHref
           className={componentClass}
         >
           {asideMenuItemInnerContents}

@@ -1,40 +1,40 @@
 import {
-  mdiMenu,
-  mdiClockOutline,
-  mdiCloud,
-  mdiCrop,
   mdiAccount,
+  // mdiClockOutline,
+  // mdiCloud,
   mdiCogOutline,
+  // mdiCrop,
   mdiEmail,
+  // mdiGithub,
   mdiLogout,
+  // mdiMenu,
   mdiThemeLightDark,
-  mdiGithub,
 } from '@mdi/js'
 
 import { MenuNavBarItem } from '../interfaces'
 
 const menuNavBar: MenuNavBarItem[] = [
-  {
-    icon: mdiMenu,
-    label: 'Menu',
-    menu: [
-      {
-        icon: mdiClockOutline,
-        label: 'Item One',
-      },
-      {
-        icon: mdiCloud,
-        label: 'Item Two',
-      },
-      {
-        isDivider: true,
-      },
-      {
-        icon: mdiCrop,
-        label: 'Item Last',
-      },
-    ],
-  },
+  // {
+  //   icon: mdiMenu,
+  //   label: 'Menu',
+  //   menu: [
+  //     {
+  //       icon: mdiClockOutline,
+  //       label: 'Item One',
+  //     },
+  //     {
+  //       icon: mdiCloud,
+  //       label: 'Item Two',
+  //     },
+  //     {
+  //       isDivider: true,
+  //     },
+  //     {
+  //       icon: mdiCrop,
+  //       label: 'Item Last',
+  //     },
+  //   ],
+  // },
   {
     isCurrentUser: true,
     menu: [
@@ -67,19 +67,19 @@ const menuNavBar: MenuNavBarItem[] = [
     isDesktopNoLabel: true,
     isToggleLightDark: true,
   },
-  {
-    icon: mdiGithub,
-    label: 'GitHub',
-    isDesktopNoLabel: true,
-    href: 'https://github.com/polpenaloza/react-me.com',
-    target: '_blank',
-  },
-  {
-    icon: mdiLogout,
-    label: 'Log out',
-    isDesktopNoLabel: true,
-    isLogout: true,
-  },
+  // {
+  //   icon: mdiGithub,
+  //   label: 'GitHub',
+  //   isDesktopNoLabel: true,
+  //   href: 'https://github.com/polpenaloza/react-me.com',
+  //   target: '_blank',
+  // },
+  // {
+  //   icon: mdiLogout,
+  //   label: 'Log out',
+  //   isDesktopNoLabel: true,
+  //   isLogout: true,
+  // },
 ]
 
 export default menuNavBar
