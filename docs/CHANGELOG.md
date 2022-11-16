@@ -1,3 +1,11 @@
+## [1.3.3](https://github.com/polpenaloza/react-me.com/compare/v1.3.2...v1.3.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **gha:** codeql and release ([#49](https://github.com/polpenaloza/react-me.com/issues/49)) ([fc88f05](https://github.com/polpenaloza/react-me.com/commit/fc88f05832af4c3ef6779041b49c32b93bbd5f32))
+* **layout:** store and css ([#40](https://github.com/polpenaloza/react-me.com/issues/40)) ([8e813ba](https://github.com/polpenaloza/react-me.com/commit/8e813bad609171713dce1f0cc4734053e2fd8f56))
+
 ## [1.3.3-beta.1](https://github.com/polpenaloza/react-me.com/compare/v1.3.2...v1.3.3-beta.1) (2022-11-16)
 
 
