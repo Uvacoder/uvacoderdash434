@@ -1,6 +1,5 @@
-import React, { Children, ReactNode } from 'react'
-
 import { mdiCog } from '@mdi/js'
+import React, { Children, ReactNode } from 'react'
 
 import BaseButton from '../Button/BaseButton'
 import BaseIcon from '../Icon/BaseIcon'

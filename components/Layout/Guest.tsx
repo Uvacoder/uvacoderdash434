@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 
-import { useAppStore, iAppState } from '../../core/store'
+import { iAppState, useAppStore } from '../../core/store'
 import { App } from './app'
 
 type Props = {
@@ -8,7 +8,14 @@ type Props = {
 }
 
 export default function LayoutGuest({ children }: Props) {
+  const [isHydrated, setIsHydrated] = useState(false)
   const darkMode = useAppStore((state: iAppState) => state.darkMode)
+
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  if (!isHydrated) return <div />
 
   return (
     <App>

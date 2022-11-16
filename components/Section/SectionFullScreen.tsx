@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react'
 
 import {
-  gradientBgPurplePink,
   gradientBgDark,
   gradientBgPinkRed,
+  gradientBgPurplePink,
 } from '../../core/colors'
 import { iAppState, useAppStore } from '../../core/store'
 import { BgKey } from '../../interfaces'

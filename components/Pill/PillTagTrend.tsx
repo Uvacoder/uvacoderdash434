@@ -1,13 +1,12 @@
-import React from 'react'
-
 import {
-  mdiChevronUp,
-  mdiChevronDown,
   mdiAlertCircleOutline,
-  mdiInformationOutline,
-  mdiCheckCircleOutline,
   mdiAlertOutline,
+  mdiCheckCircleOutline,
+  mdiChevronDown,
+  mdiChevronUp,
+  mdiInformationOutline,
 } from '@mdi/js'
+import React from 'react'
 
 import { ColorKey, TrendType } from '../../interfaces'
 import PillTag from './PillTag'

@@ -15,8 +15,8 @@ runs:
       name: Validate PR Title
       continue-on-error: false
       with:
-        regex: '\w+\(([\w]+)\)+:( \w+)( \w+\-\d+)?'
-        allowed_prefixes: "feature,feat,fix,hotfix,chore,perf,refactor,test"
+        regex: '\w+\(([\w]+)\)+:(.\w+.)(.\w+)+'
+        allowed_prefixes: "feature,feat,fix,hotfix,chore,perf,refactor,test,update"
         prefix_case_sensitive: true
         max_length: 60
         github_token: ${{ inputs.token }}

@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
-import type { ReactElement } from 'react'
-
 import {
   mdiAccountMultiple,
   mdiCartOutline,
-  mdiChartPie,
   mdiChartTimelineVariant,
   mdiGithub,
   mdiMonitorCellphone,
-  mdiReload,
 } from '@mdi/js'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import React, { ReactElement } from 'react'
 
-import { sampleChartData } from '../components/Charts/config'
 import { useSampleClients, useSampleTransactions } from '../hooks/sampleData'
 import { Client, Transaction } from '../interfaces'
 
@@ -24,7 +19,6 @@ const CardBoxTransaction = dynamic(
   () => import('../components/Card/CardBoxTransaction')
 )
 const CardBoxWidget = dynamic(() => import('../components/Card/CardBoxWidget'))
-const ChartLineSample = dynamic(() => import('../components/Charts/LineSample'))
 const NotificationBar = dynamic(
   () => import('../components/Notification/NotificationBar')
 )
@@ -44,14 +38,6 @@ const Dashboard = () => {
   const { transactions } = useSampleTransactions()
 
   const clientsListed = clients.slice(0, 4)
-
-  const [chartData, setChartData] = useState(sampleChartData())
-
-  const fillChartData = (e: React.MouseEvent) => {
-    e.preventDefault()
-
-    setChartData(sampleChartData())
-  }
 
   return (
     <>
@@ -122,18 +108,6 @@ const Dashboard = () => {
             ))}
           </div>
         </div>
-
-        <SectionTitleLineWithButton icon={mdiChartPie} title='Trends overview'>
-          <BaseButton
-            icon={mdiReload}
-            color='whiteDark'
-            onClick={fillChartData}
-          />
-        </SectionTitleLineWithButton>
-
-        <CardBox className='mb-6'>
-          {chartData && <ChartLineSample data={chartData} />}
-        </CardBox>
 
         <SectionTitleLineWithButton icon={mdiAccountMultiple} title='Clients' />
 

@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { mdiTrendingDown, mdiTrendingNeutral, mdiTrendingUp } from '@mdi/js'
+import React from 'react'
 
 import { Client } from '../../interfaces'
 import UserAvatar from '../Avatar/UserAvatar'

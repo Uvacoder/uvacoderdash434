@@ -1,18 +1,17 @@
-import { ReactNode, useState } from 'react'
-
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
-import { ErrorBoundary } from '../components/ErrorBoundary'
 // import translation catalog
 import './i18next.config'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactNode, useState } from 'react'
+
+import { ErrorBoundary } from '../components/ErrorBoundary'
+
 type AppProvidersProps = {
-  pageProps?: any
   children: ReactNode
 }
 
-export function AppProviders({ pageProps, children }: AppProvidersProps) {
+export function AppProviders({ children }: AppProvidersProps) {
   // ensures that data is not shared between users
   // ref: https://react-query.tanstack.com/guides/ssr
   const [queryClient] = useState(

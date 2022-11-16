@@ -3,13 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
-    'prettier',
-    'next/core-web-vitals',
-  ],
+  extends: ['next', 'prettier', 'next/core-web-vitals'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -17,9 +11,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['simple-import-sort', 'prettier'],
   rules: {
-    'no-explicit-any': 'off',
+    '@next/next/no-html-link-for-pages': 'off',
+    '@next/next/no-html-link-for-pages': 'off',
+    'newline-after-var': 'error',
     'no-console': [
       2,
       {
@@ -28,33 +24,17 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
     'no-debugger': 2,
-    'import/order': [
-      'error',
-      {
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          ['sibling', 'parent'],
-          'index',
-          'object',
-          'type',
-        ],
-        pathGroups: [
-          {
-            pattern: 'react',
-            group: 'external',
-            position: 'before',
-          },
-        ],
-        pathGroupsExcludedImportTypes: ['react'],
-        'newlines-between': 'always',
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-      },
-    ],
+    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': 'error',
+    'no-empty-function': 'error',
+    'no-irregular-whitespace': 'error',
+    'no-trailing-spaces': 'error',
+    'no-unused-vars': 'error',
+    'prefer-const': 'error',
+    'react/jsx-key': 'off',
+    'simple-import-sort/exports': 'error',
+    'simple-import-sort/imports': 'error',
+    camelcase: 'error',
   },
   settings: {
     react: {

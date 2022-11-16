@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { mdiCashMinus, mdiCashPlus, mdiCreditCard, mdiReceipt } from '@mdi/js'
+import React from 'react'
 
 import { Transaction } from '../../interfaces'
 import BaseLevel from '../Base/BaseLevel'
