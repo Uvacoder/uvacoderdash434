@@ -19,10 +19,10 @@ export default function FooterBar({ children }: Props) {
             &copy;{year},{` `}
             <a
               target={'_blank'}
-              href='https://twitter.com/polpenaloza'
+              href='https://twitter.com/VaLandscapes'
               rel='noopener noreferrer'
             >
-              @polpenaloza
+              @VaLandscapes
             </a>
           </b>
           {children}
