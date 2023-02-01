@@ -48,7 +48,7 @@ const menuAside: MenuAsideItem[] = [
   //   ],
   // },
   {
-    href: 'https://github.com/polpenaloza/react-me.com',
+    href: 'https://github.com/uvacoder/uvacoderdash',
     label: 'GitHub',
     icon: mdiGithub,
     target: '_blank',
