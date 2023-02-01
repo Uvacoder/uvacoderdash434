@@ -59,11 +59,11 @@ export default function LayoutAuthenticated({ children }: Props) {
           >
             <div className='px-2 flex items-center text-gray-700 dark:text-gray-200 font-mono font-bold'>
               <a
-                href='https://github.com/polpenaloza/react-me.com'
+                href='https://github.com/uvacoder/uvacoderdash'
                 target='_blank'
                 rel='noreferrer'
               >
-                dev@polpenaloza: ~/$
+                @uvacoder: ~/$
               </a>
               <span className='animate-blink font-mono font-bold'>|</span>
             </div>
